@@ -1,0 +1,19 @@
+# npm
+node_modules
+npm-shrinkwrap.json
+*.log
+*.gz
+
+# local env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*

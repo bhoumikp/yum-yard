@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+	/* Colors */
+	--color-background: #272727;
+	--color-surface: #212121;
+	--color-surface-elevated: #303030;
+
+	--color-primary: #ffc20d;
+	--color-primary-hover: #e8b416;
+
+	--color-text: #ffffff;
+	--color-text-secondary: #d1d5db;
+	--color-text-muted: #9ca3af;
+
+	--color-success: #22c55e;
+	--color-danger: #ef4444;
+
+	/* Typography */
+	--font-body: "Poppins", sans-serif;
+	--font-heading: "Montserrat", sans-serif;
+
+	/* Radius */
+	--radius-sm: 0.375rem;
+	--radius-md: 0.625rem;
+	--radius-lg: 0.875rem;
+	--radius-xl: 1.25rem;
+	--radius-pill: 9999px;
+}
+
+:root {
+	font-family: var(--font-body);
+	color: var(--color-text);
+	background: var(--color-background);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	background: var(--color-background);
+	color: var(--color-text);
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: #212121;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #ffc20d;
+	border-radius: 5px;
+}

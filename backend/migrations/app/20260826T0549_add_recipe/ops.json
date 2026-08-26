@@ -1,0 +1,41 @@
+[
+  {
+    "id": "table.Recipe",
+    "label": "Create table \"Recipe\"",
+    "summary": "Creates table \"Recipe\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "Recipe"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"Recipe\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"Recipe\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"Recipe\"",
+        "sql": "CREATE TABLE \"public\".\"Recipe\" (\n  \"authorId\" character(36) NOT NULL,\n  \"category\" text NOT NULL,\n  \"cookingTimeMinutes\" int4 NOT NULL,\n  \"createdAt\" timestamptz DEFAULT (now()) NOT NULL,\n  \"cuisine\" text,\n  \"description\" text,\n  \"difficulty\" text NOT NULL,\n  \"id\" character(36) NOT NULL,\n  \"imageUrl\" text,\n  \"status\" text NOT NULL,\n  \"title\" text NOT NULL,\n  \"type\" text NOT NULL,\n  \"updatedAt\" timestamptz NOT NULL,\n  PRIMARY KEY (\"id\")\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"Recipe\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"Recipe\""
+        ]
+      }
+    ]
+  }
+]

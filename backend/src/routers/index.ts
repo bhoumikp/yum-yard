@@ -1,4 +1,5 @@
 import express from 'express';
+import recipeRouter from './recipe.routes.js';
 
 const router = express.Router();
 
@@ -15,5 +16,6 @@ router.get('/health', (_req, res) => {
 	})
 })
 
+router.use('/recipes', recipeRouter);
 
 export default router;

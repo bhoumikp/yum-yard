@@ -33,9 +33,9 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'f2d66e25037499c10f097563e7059074c94174ec31c36093db372aa97c65cb0a'>;
+  StorageHashBase<'38515b0d32cc3d2e50478306bb766668225969321cd40ab47217fb4a0db17969'>;
 export type ExecutionHash =
-  ExecutionHashBase<'191d393e58e2834a8855ec680a047b431356d450deaeb1edf0cf7ec2531818a3'>;
+  ExecutionHashBase<'2bd01f419e6dec43600f208c43321d053e44720bf0500a9bde147fe23f3ca6bd'>;
 export type ProfileHash =
   ProfileHashBase<'3916f444a8a17ad749191acf9e08dad97d1a327b88c2f1d45d12f240296aa8b2'>;
 
@@ -295,7 +295,7 @@ export type FieldInputTypes = {
 };
 export type StorageColumnTypes = {
   readonly public: {
-    readonly Recipe: {
+    readonly recipes: {
       readonly authorId: Char<36>;
       readonly category: CodecTypes['pg/text@1']['output'];
       readonly cookingTimeMinutes: CodecTypes['pg/int4@1']['output'];
@@ -310,7 +310,7 @@ export type StorageColumnTypes = {
       readonly type: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-temporal@1']['output'];
     };
-    readonly User: {
+    readonly users: {
       readonly createdAt: CodecTypes['pg/timestamptz-temporal@1']['output'];
       readonly email: CodecTypes['pg/text@1']['output'];
       readonly id: Char<36>;
@@ -322,7 +322,7 @@ export type StorageColumnTypes = {
 };
 export type StorageColumnInputTypes = {
   readonly public: {
-    readonly Recipe: {
+    readonly recipes: {
       readonly authorId: CodecTypes['sql/char@1']['input'];
       readonly category: CodecTypes['pg/text@1']['input'];
       readonly cookingTimeMinutes: CodecTypes['pg/int4@1']['input'];
@@ -337,7 +337,7 @@ export type StorageColumnInputTypes = {
       readonly type: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-temporal@1']['input'];
     };
-    readonly User: {
+    readonly users: {
       readonly createdAt: CodecTypes['pg/timestamptz-temporal@1']['input'];
       readonly email: CodecTypes['pg/text@1']['input'];
       readonly id: CodecTypes['sql/char@1']['input'];
@@ -365,7 +365,7 @@ type ContractBase = Omit<
         readonly kind: 'postgres-schema';
         readonly entries: {
           readonly table: {
-            readonly Recipe: {
+            readonly recipes: {
               columns: {
                 readonly id: {
                   readonly nativeType: 'character';
@@ -441,7 +441,7 @@ type ContractBase = Omit<
               indexes: readonly [];
               foreignKeys: readonly [];
             };
-            readonly User: {
+            readonly users: {
               columns: {
                 readonly id: {
                   readonly nativeType: 'character';
@@ -492,8 +492,8 @@ type ContractBase = Omit<
   readonly target: 'postgres';
   readonly targetFamily: 'sql';
   readonly roots: {
-    readonly User: { readonly namespace: 'public' & NamespaceId; readonly model: 'User' };
-    readonly Recipe: { readonly namespace: 'public' & NamespaceId; readonly model: 'Recipe' };
+    readonly users: { readonly namespace: 'public' & NamespaceId; readonly model: 'User' };
+    readonly recipes: { readonly namespace: 'public' & NamespaceId; readonly model: 'Recipe' };
   };
   readonly domain: {
     readonly namespaces: {
@@ -579,7 +579,7 @@ type ContractBase = Omit<
               };
             };
             readonly storage: {
-              readonly table: 'Recipe';
+              readonly table: 'recipes';
               readonly namespaceId: 'public';
               readonly fields: {
                 readonly id: { readonly column: 'id' };
@@ -649,7 +649,7 @@ type ContractBase = Omit<
               };
             };
             readonly storage: {
-              readonly table: 'User';
+              readonly table: 'users';
               readonly namespaceId: 'public';
               readonly fields: {
                 readonly id: { readonly column: 'id' };
@@ -691,7 +691,7 @@ type ContractBase = Omit<
         {
           readonly ref: {
             readonly namespace: 'public';
-            readonly table: 'Recipe';
+            readonly table: 'recipes';
             readonly column: 'id';
           };
           readonly onCreate: { readonly kind: 'generator'; readonly id: 'uuidv7' };
@@ -699,7 +699,7 @@ type ContractBase = Omit<
         {
           readonly ref: {
             readonly namespace: 'public';
-            readonly table: 'Recipe';
+            readonly table: 'recipes';
             readonly column: 'updatedAt';
           };
           readonly onCreate: { readonly kind: 'generator'; readonly id: 'instantNow' };
@@ -708,7 +708,7 @@ type ContractBase = Omit<
         {
           readonly ref: {
             readonly namespace: 'public';
-            readonly table: 'User';
+            readonly table: 'users';
             readonly column: 'id';
           };
           readonly onCreate: { readonly kind: 'generator'; readonly id: 'uuidv7' };
@@ -716,7 +716,7 @@ type ContractBase = Omit<
         {
           readonly ref: {
             readonly namespace: 'public';
-            readonly table: 'User';
+            readonly table: 'users';
             readonly column: 'updatedAt';
           };
           readonly onCreate: { readonly kind: 'generator'; readonly id: 'instantNow' };
